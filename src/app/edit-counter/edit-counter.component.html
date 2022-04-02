@@ -1,0 +1,6 @@
+<form #f="ngForm">
+  <input type="number" id="inputNumber" name="inputNumber" value="0" ngModel />
+
+  <button (click)="addNumber(f)">add</button>
+  <button (click)="minusNumber(f)">remove</button>
+</form>
