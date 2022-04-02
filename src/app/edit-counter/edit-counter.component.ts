@@ -14,11 +14,13 @@ export class EditCounterComponent implements OnInit {
   addNumber(form: NgForm) {
     this.val = form.value.inputNumber;
     this.counter.add(this.val);
+    form.onReset();
   }
 
   minusNumber(form: NgForm) {
     this.val = form.value.inputNumber;
     this.counter.remove(this.val);
+    form.onReset();
   }
 
   ngOnInit(): void {}
