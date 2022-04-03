@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <label for="name">Seleziona la birra</label>
+  <select name="id" id="id" ngModel required>
+    <option *ngFor="let beer of beers" [value]="beer.id">
+      {{ beer.name }}
+    </option>
+  </select>
+  <label for="type">Seleziona il tipo</label>
+  <select name="type" id="type" ngModel required>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+  </select>
+  <button [disabled]="f.invalid" type="submit">Cerca</button>
+</form>
+<ng-container *ngIf="selectedBeer && selectExist">
+  <p>{{ selectedBeer.name }}</p>
+  <p>{{ selectedBeer.type }}</p>
+  <p>€{{ selectedBeer.price }}</p>
+</ng-container>
+<ng-container *ngIf="selectedBeer && !selectExist">
+  <p>No beer found</p>
+</ng-container>
